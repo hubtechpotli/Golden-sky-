@@ -1,5 +1,6 @@
 import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 export function Footer() {
   return (
@@ -8,14 +9,14 @@ export function Footer() {
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div className="md:col-span-2">
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-10 h-10 bg-primary-foreground/10 rounded-lg flex items-center justify-center">
-                  <span className="text-primary-foreground font-bold text-xl">GS</span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-xl font-bold leading-tight">GOLDEN SKY</span>
-                  <span className="text-xs text-primary-foreground/70 leading-tight">COLLECTION & RECOVERY AGENCY</span>
-                </div>
+              <div className="flex items-center mb-4">
+                <Image
+                  src="/image.png"
+                  alt="Golden Sky Logo"
+                  width={150}
+                  height={60}
+                  className="h-12 w-auto object-contain"
+                />
               </div>
               <p className="text-primary-foreground/80 leading-relaxed mb-4">
                 Professional collection and recovery solutions for banks, NBFCs, and businesses. Ethical, efficient, and
