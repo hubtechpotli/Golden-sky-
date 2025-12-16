@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Menu, X, Phone, LogIn } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs"
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -54,15 +55,34 @@ export function Header() {
           </nav>
 
           <div className="hidden md:flex items-center gap-4">
-            <Link href="/login">
-              <Button
-                variant="outline"
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent"
+            <SignedOut>
+              <SignInButton 
+                mode="modal" 
+                redirectUrl="/admin"
+                forceRedirectUrl="/admin"
+                appearance={{
+                  elements: {
+                    footer: "hidden",
+                  },
+                }}
               >
-                <LogIn className="w-4 h-4 mr-2" />
-                Agency Login
-              </Button>
-            </Link>
+                <Button
+                  variant="outline"
+                  className="border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent"
+                >
+                  <LogIn className="w-4 h-4 mr-2" />
+                  Admin Login
+                </Button>
+              </SignInButton>
+            </SignedOut>
+            <SignedIn>
+              <UserButton afterSignOutUrl="/" />
+              <Link href="/admin">
+                <Button variant="ghost" className="text-sm">
+                  Admin Panel
+                </Button>
+              </Link>
+            </SignedIn>
             <a href="tel:8603331004">
               <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
                 <Phone className="w-4 h-4 mr-2" />
@@ -109,15 +129,40 @@ export function Header() {
               >
                 Contact Us
               </Link>
-              <Link href="/login" onClick={() => setIsMobileMenuOpen(false)} className="px-4">
-                <Button
-                  variant="outline"
-                  className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent"
-                >
-                  <LogIn className="w-4 h-4 mr-2" />
-                  Agency Login
-                </Button>
-              </Link>
+              <SignedOut>
+                <div className="px-4" onClick={() => setIsMobileMenuOpen(false)}>
+                  <SignInButton 
+                    mode="modal" 
+                    redirectUrl="/admin"
+                    forceRedirectUrl="/admin"
+                    appearance={{
+                      elements: {
+                        footer: "hidden",
+                      },
+                    }}
+                  >
+                    <Button
+                      variant="outline"
+                      className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent"
+                    >
+                      <LogIn className="w-4 h-4 mr-2" />
+                      Admin Login
+                    </Button>
+                  </SignInButton>
+                </div>
+              </SignedOut>
+              <SignedIn>
+                <div className="px-4 space-y-2" onClick={() => setIsMobileMenuOpen(false)}>
+                  <div className="flex justify-center">
+                    <UserButton afterSignOutUrl="/" />
+                  </div>
+                  <Link href="/admin" className="block">
+                    <Button variant="ghost" className="w-full text-sm">
+                      Admin Panel
+                    </Button>
+                  </Link>
+                </div>
+              </SignedIn>
               <a href="tel:8603331004" className="px-4">
                 <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
                   <Phone className="w-4 h-4 mr-2" />

@@ -7,10 +7,10 @@ function Card({ className, children, ...props }: React.ComponentProps<'div'>) {
     <div
       data-slot="card"
       className={cn(
-        'rounded-[50px] bg-[#e0e0e0] dark:bg-[#2a2a2a]',
-        'shadow-[20px_20px_60px_rgba(190,190,190,0.5),-20px_-20px_60px_rgba(255,255,255,0.5)]',
-        'dark:shadow-[20px_20px_60px_rgba(0,0,0,0.5),-20px_-20px_60px_rgba(50,50,50,0.3)]',
-        'flex flex-col',
+        'bg-[rgb(236,236,236)] dark:bg-[rgb(42,42,42)]',
+        'shadow-[rgba(0,0,0,0.4)_0px_2px_4px,rgba(0,0,0,0.3)_0px_7px_13px_-3px,rgba(0,0,0,0.2)_0px_-3px_0px_inset]',
+        'dark:shadow-[rgba(0,0,0,0.6)_0px_2px_4px,rgba(0,0,0,0.5)_0px_7px_13px_-3px,rgba(0,0,0,0.4)_0px_-3px_0px_inset]',
+        'flex flex-col rounded-lg transition-shadow duration-300',
         className,
       )}
       {...props}

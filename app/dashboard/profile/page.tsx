@@ -8,10 +8,13 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
-import { CheckCircle2, CreditCard, User, FileText, CheckCheck, Info } from "lucide-react"
+import { CheckCircle2, CreditCard, User, FileText, CheckCheck, Info, AlertCircle } from "lucide-react"
+import { saveAgencyRegistration } from "@/lib/database"
 
 export default function ProfilePage() {
   const router = useRouter()
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(null)
   const [formData, setFormData] = useState({
     panCard: "",
     agentName: "",
@@ -42,8 +45,53 @@ export default function ProfilePage() {
     setFormData({ ...formData, [field]: value })
   }
 
-  const handleNext = () => {
-    router.push("/dashboard/kyc")
+  const handleNext = async () => {
+    setIsSubmitting(true)
+    setSubmitStatus(null)
+
+    try {
+      const result = await saveAgencyRegistration({
+        pan_card: formData.panCard,
+        agent_name: formData.agentName,
+        father_name: formData.fatherName,
+        mobile: formData.mobile,
+        alternate_mobile: formData.alternateMobile,
+        email: formData.email,
+        address: formData.address,
+        dra_number: formData.draNumber,
+        aadhar_number: formData.aadharNumber,
+        state: formData.state,
+        city: formData.city,
+        facebook: formData.facebook,
+        instagram: formData.instagram,
+        family_name_1: formData.familyName1,
+        family_relation_1: formData.familyRelation1,
+        family_mobile_1: formData.familyMobile1,
+        family_name_2: formData.familyName2,
+        family_relation_2: formData.familyRelation2,
+        family_mobile_2: formData.familyMobile2,
+        account_name: formData.accountName,
+        bank_name: formData.bankName,
+        account_number: formData.accountNumber,
+        ifsc_code: formData.ifscCode,
+        status: "pending",
+      })
+      
+      // Store registration ID for KYC step
+      if (result?.id) {
+        localStorage.setItem('currentRegistrationId', result.id)
+      }
+      
+      setSubmitStatus("success")
+      setTimeout(() => {
+        router.push("/dashboard/kyc")
+      }, 1000)
+    } catch (error) {
+      console.error("Error saving profile:", error)
+      setSubmitStatus("error")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleBack = () => {
@@ -378,16 +426,39 @@ export default function ProfilePage() {
               </div>
             </div>
 
+            {submitStatus === "error" && (
+              <div className="p-4 bg-red-50 dark:bg-red-950 border border-red-200 dark:border-red-800 rounded-lg flex items-center gap-2">
+                <AlertCircle className="w-5 h-5 text-red-600 dark:text-red-400" />
+                <p className="text-sm text-red-800 dark:text-red-200">
+                  Failed to save profile. Please try again.
+                </p>
+              </div>
+            )}
+
+            {submitStatus === "success" && (
+              <div className="p-4 bg-green-50 dark:bg-green-950 border border-green-200 dark:border-green-800 rounded-lg flex items-center gap-2">
+                <CheckCircle2 className="w-5 h-5 text-green-600 dark:text-green-400" />
+                <p className="text-sm text-green-800 dark:text-green-200">
+                  Profile saved successfully! Redirecting...
+                </p>
+              </div>
+            )}
+
             <div className="flex gap-4 pt-6">
               <Button
                 onClick={handleBack}
                 variant="outline"
                 className="flex-1 h-12 text-base font-semibold bg-transparent"
+                disabled={isSubmitting}
               >
                 Back
               </Button>
-              <Button onClick={handleNext} className="flex-1 h-12 text-base font-semibold">
-                Continue to KYC
+              <Button
+                onClick={handleNext}
+                className="flex-1 h-12 text-base font-semibold"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Saving..." : "Continue to KYC"}
               </Button>
             </div>
           </CardContent>

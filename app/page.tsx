@@ -5,6 +5,7 @@ import { Services } from "@/components/services"
 import { Process } from "@/components/process"
 import { Stats } from "@/components/stats"
 import { WhyChooseUs } from "@/components/why-choose-us"
+import { Team } from "@/components/team"
 import { CTA } from "@/components/cta"
 import { Footer } from "@/components/footer"
 
@@ -18,6 +19,7 @@ export default function HomePage() {
       <Process />
       <Stats />
       <WhyChooseUs />
+      <Team />
       <CTA />
       <Footer />
     </main>

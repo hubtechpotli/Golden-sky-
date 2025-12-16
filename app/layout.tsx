@@ -2,6 +2,8 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter, Space_Grotesk } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
+import { ClerkProvider } from "@clerk/nextjs"
+import { SWRProvider } from "@/components/providers/swr-provider"
 import { WhatsAppChat } from "@/components/whatsapp-chat"
 import "./globals.css"
 
@@ -38,12 +40,16 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} font-sans antialiased`}>
-        {children}
-        <WhatsAppChat />
-        <Analytics />
-      </body>
-    </html>
+    <ClerkProvider>
+      <SWRProvider>
+        <html lang="en">
+          <body className={`${inter.className} font-sans antialiased`}>
+            {children}
+            <WhatsAppChat />
+            <Analytics />
+          </body>
+        </html>
+      </SWRProvider>
+    </ClerkProvider>
   )
 }

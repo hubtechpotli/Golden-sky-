@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
+import { saveWhatsAppInquiry } from "@/lib/database"
 
 const services = [
   {
@@ -75,8 +76,23 @@ export function WhatsAppChat() {
     setFormData((prev) => ({ ...prev, [field]: value }))
   }
 
-  const handleSendMessage = () => {
+  const handleSendMessage = async () => {
     const { name, phone, message } = formData
+    
+    // Save to database
+    try {
+      await saveWhatsAppInquiry({
+        name,
+        phone,
+        service: selectedService,
+        message,
+      })
+    } catch (error) {
+      console.error("Error saving WhatsApp inquiry:", error)
+      // Continue even if database save fails
+    }
+
+    // Open WhatsApp
     const fullMessage = `*Golden Sky - Collection & Recovery Agency*\n\n*Service:* ${selectedService}\n*Name:* ${name}\n*Phone:* ${phone}\n\n*Message:*\n${message}`
     const encodedMessage = encodeURIComponent(fullMessage)
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`
@@ -256,4 +272,5 @@ export function WhatsAppChat() {
     </>
   )
 }
+
 
