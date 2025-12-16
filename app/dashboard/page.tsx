@@ -7,10 +7,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { CheckCircle2, CreditCard, User, FileText, CheckCheck, Info } from "lucide-react"
+import { saveAgencyRegistration } from "@/lib/database"
 
 export default function DashboardPage() {
   const [currentStep, setCurrentStep] = useState(1)
   const [panCard, setPanCard] = useState("")
+  const [isSaving, setIsSaving] = useState(false)
   const router = useRouter()
 
   const steps = [
@@ -20,9 +22,24 @@ export default function DashboardPage() {
     { id: 4, title: "Finish", icon: CheckCheck },
   ]
 
-  const handleNext = () => {
-    if (currentStep === 1) {
-      router.push("/dashboard/profile")
+  const handleNext = async () => {
+    if (currentStep === 1 && panCard) {
+      setIsSaving(true)
+      try {
+        // Save initial registration with PAN card
+        await saveAgencyRegistration({
+          pan_card: panCard,
+          agent_name: "",
+          mobile: "",
+          email: "",
+          status: "pending",
+        })
+        router.push("/dashboard/profile")
+      } catch (error) {
+        console.error("Error saving PAN card:", error)
+      } finally {
+        setIsSaving(false)
+      }
     } else if (currentStep < steps.length) {
       setCurrentStep(currentStep + 1)
     }
@@ -108,8 +125,12 @@ export default function DashboardPage() {
             </div>
 
             <div className="flex gap-4 pt-6">
-              <Button onClick={handleNext} className="flex-1 h-12 text-base font-semibold">
-                Continue to Profile
+              <Button
+                onClick={handleNext}
+                className="flex-1 h-12 text-base font-semibold"
+                disabled={!panCard || isSaving}
+              >
+                {isSaving ? "Saving..." : "Continue to Profile"}
               </Button>
             </div>
           </CardContent>
