@@ -1,7 +1,7 @@
 "use client"
 
 import { Card } from "@/components/ui/card"
-import { Crown, Briefcase, Users, Award, Linkedin, Mail, Phone } from "lucide-react"
+import { Crown, Briefcase, Users, Award } from "lucide-react"
 
 const leadership = [
   {
@@ -103,33 +103,6 @@ export function Team() {
                       <p className="text-xs text-muted-foreground">{member.description}</p>
                     </div>
 
-                    {/* Divider */}
-                    <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mb-4" />
-
-                    {/* Contact Icons */}
-                    <div className="flex items-center justify-center gap-3">
-                      <a
-                        href={`mailto:info@goldensky.com`}
-                        className="w-10 h-10 rounded-lg bg-muted hover:bg-primary/10 flex items-center justify-center transition-all group/icon hover:scale-110"
-                        aria-label="Email"
-                      >
-                        <Mail className="w-4 h-4 text-muted-foreground group-hover/icon:text-primary transition-colors" />
-                      </a>
-                      <a
-                        href={`tel:8603331004`}
-                        className="w-10 h-10 rounded-lg bg-muted hover:bg-primary/10 flex items-center justify-center transition-all group/icon hover:scale-110"
-                        aria-label="Phone"
-                      >
-                        <Phone className="w-4 h-4 text-muted-foreground group-hover/icon:text-primary transition-colors" />
-                      </a>
-                      <a
-                        href="#"
-                        className="w-10 h-10 rounded-lg bg-muted hover:bg-primary/10 flex items-center justify-center transition-all group/icon hover:scale-110"
-                        aria-label="LinkedIn"
-                      >
-                        <Linkedin className="w-4 h-4 text-muted-foreground group-hover/icon:text-primary transition-colors" />
-                      </a>
-                    </div>
                   </div>
 
                   {/* Hover Glow Effect */}

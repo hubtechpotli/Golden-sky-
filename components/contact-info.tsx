@@ -5,8 +5,8 @@ const contactDetails = [
   {
     icon: Phone,
     title: "Phone",
-    details: ["+91 8603331004"],
-    action: "tel:8603331004",
+    details: ["+91 9709770712"],
+    action: "tel:9709770712",
   },
   {
     icon: MapPin,

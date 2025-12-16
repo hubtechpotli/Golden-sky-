@@ -3,9 +3,9 @@ import { Hero } from "@/components/hero"
 import { Features } from "@/components/features"
 import { Services } from "@/components/services"
 import { Process } from "@/components/process"
-import { Stats } from "@/components/stats"
 import { WhyChooseUs } from "@/components/why-choose-us"
 import { Team } from "@/components/team"
+import { AuthorisedPartners } from "@/components/authorised-partners"
 import { CTA } from "@/components/cta"
 import { Footer } from "@/components/footer"
 
@@ -17,9 +17,9 @@ export default function HomePage() {
       <Features />
       <Services />
       <Process />
-      <Stats />
       <WhyChooseUs />
       <Team />
+      <AuthorisedPartners />
       <CTA />
       <Footer />
     </main>

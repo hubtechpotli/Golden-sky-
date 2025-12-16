@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { LogIn, User, Lock, Info } from "lucide-react"
+import { LogIn, User, Lock } from "lucide-react"
 import Link from "next/link"
 
 export default function LoginPage() {
@@ -33,19 +33,6 @@ export default function LoginPage() {
           <CardDescription className="text-base">Login to access your dashboard</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="mb-6 p-4 bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-lg">
-            <div className="flex items-start gap-3">
-              <Info className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
-              <div className="text-sm text-blue-800 dark:text-blue-200">
-                <p className="font-semibold mb-1">Demo Note</p>
-                <p>
-                  Just click on Login button to see the next page. This is for your reference so you can see how your
-                  website is building.
-                </p>
-              </div>
-            </div>
-          </div>
-
           <form onSubmit={handleLogin} className="space-y-6">
             <div className="space-y-2">
               <Label htmlFor="userId" className="text-sm font-semibold">

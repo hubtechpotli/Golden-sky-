@@ -83,7 +83,7 @@ export function Header() {
                 </Button>
               </Link>
             </SignedIn>
-            <a href="tel:8603331004">
+            <a href="tel:9709770712">
               <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
                 <Phone className="w-4 h-4 mr-2" />
                 Call Us
@@ -163,7 +163,7 @@ export function Header() {
                   </Link>
                 </div>
               </SignedIn>
-              <a href="tel:8603331004" className="px-4">
+              <a href="tel:9709770712" className="px-4">
                 <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
                   <Phone className="w-4 h-4 mr-2" />
                   Call Us

@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
-import { CheckCircle2, CreditCard, User, FileText, CheckCheck, Info, AlertCircle } from "lucide-react"
+import { CheckCircle2, CreditCard, User, FileText, CheckCheck, AlertCircle } from "lucide-react"
 import { saveAgencyRegistration } from "@/lib/database"
 
 export default function ProfilePage() {
@@ -153,19 +153,6 @@ export default function ProfilePage() {
             <CardDescription>Fill in your personal and contact information</CardDescription>
           </CardHeader>
           <CardContent className="space-y-8">
-            <div className="p-4 bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-lg">
-              <div className="flex items-start gap-3">
-                <Info className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
-                <div className="text-sm text-blue-800 dark:text-blue-200">
-                  <p className="font-semibold mb-1">Demo Note</p>
-                  <p>
-                    Click Continue to KYC to see the next page. This is for your reference so you can see how your
-                    website is building.
-                  </p>
-                </div>
-              </div>
-            </div>
-
             {/* Basic Information */}
             <div className="space-y-4">
               <h3 className="text-lg font-semibold border-b pb-2">Basic Information</h3>
@@ -198,7 +185,7 @@ export default function ProfilePage() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="mobile">Mobile Number (Verify With OTP)</Label>
+                  <Label htmlFor="mobile">Mobile Number</Label>
                   <Input
                     id="mobile"
                     placeholder="Enter 10 Digit Mobile Number"
@@ -208,7 +195,7 @@ export default function ProfilePage() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="alternateMobile">Alternate Number (Verify With OTP)</Label>
+                  <Label htmlFor="alternateMobile">Alternate Number</Label>
                   <Input
                     id="alternateMobile"
                     placeholder="Enter 10 Digit Mobile Number"
@@ -218,7 +205,7 @@ export default function ProfilePage() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email Id (Verify With OTP)</Label>
+                  <Label htmlFor="email">Email Id</Label>
                   <Input
                     id="email"
                     type="email"
@@ -333,7 +320,7 @@ export default function ProfilePage() {
                   </Select>
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="familyMobile1">Mobile Number (Verify With OTP)</Label>
+                  <Label htmlFor="familyMobile1">Mobile Number</Label>
                   <Input
                     id="familyMobile1"
                     placeholder="Enter 10 Digit Mobile Number"
@@ -371,7 +358,7 @@ export default function ProfilePage() {
                   </Select>
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="familyMobile2">Mobile Number (Verify With OTP)</Label>
+                  <Label htmlFor="familyMobile2">Mobile Number</Label>
                   <Input
                     id="familyMobile2"
                     placeholder="Enter 10 Digit Mobile Number"

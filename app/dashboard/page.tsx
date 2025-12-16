@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { CheckCircle2, CreditCard, User, FileText, CheckCheck, Info } from "lucide-react"
+import { CheckCircle2, CreditCard, User, FileText, CheckCheck } from "lucide-react"
 import { saveAgencyRegistration } from "@/lib/database"
 
 export default function DashboardPage() {
@@ -95,18 +95,6 @@ export default function DashboardPage() {
             <CardDescription>Please enter your PAN card number to proceed</CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
-            <div className="p-4 bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-lg">
-              <div className="flex items-start gap-3">
-                <Info className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
-                <div className="text-sm text-blue-800 dark:text-blue-200">
-                  <p className="font-semibold mb-1">Demo Note</p>
-                  <p>
-                    Click Continue to see the next page. This is for your reference so you can see how your website is
-                    building.
-                  </p>
-                </div>
-              </div>
-            </div>
 
             <div className="space-y-2">
               <Label htmlFor="panCard" className="text-base font-semibold">

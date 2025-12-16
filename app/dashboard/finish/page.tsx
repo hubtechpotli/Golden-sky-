@@ -77,7 +77,7 @@ export default function FinishPage() {
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                   <span className="text-sm text-muted-foreground">
-                    Our support team will contact you at 8603331004 if any additional information is needed
+                    Our support team will contact you at 9709770712 if any additional information is needed
                   </span>
                 </li>
               </ul>

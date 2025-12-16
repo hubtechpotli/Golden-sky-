@@ -83,8 +83,8 @@ export function Footer() {
                 <li>Dhanbad, Jharkhand</li>
                 <li>826001, India</li>
                 <li>
-                  <a href="tel:8603331004" className="hover:text-primary-foreground transition-colors">
-                    +91 8603331004
+                  <a href="tel:9709770712" className="hover:text-primary-foreground transition-colors">
+                    +91 9709770712
                   </a>
                 </li>
                 <li className="text-xs pt-2">GST: 10QKGPK5121Q1ZS</li>

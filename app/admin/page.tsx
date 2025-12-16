@@ -83,25 +83,25 @@ export default function AdminDashboard() {
   return (
     <>
       {/* Spacer for fixed header - ensures content starts below header */}
-      <div className="h-20 w-full block"></div>
+      <div className="h-20 md:h-24 w-full block"></div>
       
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 -mt-20">
-        <div className="container max-w-7xl mx-auto py-4 sm:py-6 md:py-8 px-3 sm:px-4 md:px-6 lg:px-8">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
+        <div className="container max-w-7xl mx-auto py-6 sm:py-8 md:py-10 lg:py-12 px-4 sm:px-6 lg:px-8">
           {/* Header Section - Always Visible */}
-          <div className="mb-4 sm:mb-6 md:mb-8">
-            <div className="flex flex-col gap-3 sm:gap-4 mb-4 sm:mb-6">
+          <div className="mb-6 sm:mb-8 md:mb-10">
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 sm:gap-6 mb-4 sm:mb-6">
               <div className="flex-1 min-w-0">
-                <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-2">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-2 sm:mb-3">
                   Admin Dashboard
                 </h1>
-                <p className="text-xs sm:text-sm md:text-base text-muted-foreground">
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground">
                   View and manage all agency registrations
                 </p>
               </div>
-              <div className="flex items-center w-full sm:w-auto">
-                <Link href="/dashboard" className="w-full sm:w-auto">
-                  <Button size="default" className="gap-2 bg-primary hover:bg-primary/90 text-white shadow-lg hover:shadow-xl w-full sm:w-auto text-sm sm:text-base">
-                    <Plus className="w-4 h-4 sm:w-5 sm:h-5" />
+              <div className="flex items-center gap-3 w-full sm:w-auto flex-shrink-0">
+                <Link href="/dashboard" className="flex-1 sm:flex-initial">
+                  <Button size="lg" className="gap-2 bg-primary hover:bg-primary/90 text-white shadow-xl hover:shadow-2xl w-full sm:w-auto">
+                    <Plus className="w-5 h-5" />
                     <span className="hidden sm:inline">New Registration</span>
                     <span className="sm:hidden">New</span>
                   </Button>
