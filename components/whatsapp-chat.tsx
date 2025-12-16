@@ -51,7 +51,7 @@ const services = [
   },
 ]
 
-const WHATSAPP_NUMBER = "918603331004" // Replace with your WhatsApp number (without +)
+const WHATSAPP_NUMBER = "919709770712" // Replace with your WhatsApp number (without +)
 
 export function WhatsAppChat() {
   const [isOpen, setIsOpen] = useState(false)

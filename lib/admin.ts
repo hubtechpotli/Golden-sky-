@@ -4,6 +4,7 @@ import { redirect } from "next/navigation"
 // List of admin email addresses (you can also use Clerk roles/organizations)
 const ADMIN_EMAILS = [
   "ravijha110903@gmail.com", // Add your admin email here
+  "rajabhi63565@gmail.com", // Add your admin email here
   // Add more admin emails as needed
 ]
 

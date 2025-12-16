@@ -13,6 +13,38 @@ const nextConfig = {
         protocol: 'https',
         hostname: '**.supabase.in',
       },
+      {
+        protocol: 'https',
+        hostname: 'upload.wikimedia.org',
+      },
+      {
+        protocol: 'https',
+        hostname: 'img.autocarpro.in',
+      },
+      {
+        protocol: 'https',
+        hostname: 'encrypted-tbn0.gstatic.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'play-lh.googleusercontent.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.businessremedies.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'img-cdn.publive.online',
+      },
+      {
+        protocol: 'https',
+        hostname: 'inclusivecapitalism.file.force.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.livelaw.in',
+      },
     ],
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
