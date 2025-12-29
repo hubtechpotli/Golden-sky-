@@ -4,8 +4,14 @@ import { Phone, MapPin, Clock } from "lucide-react"
 const contactDetails = [
   {
     icon: Phone,
-    title: "Phone",
-    details: ["+91 9709770712"],
+    title: "Request",
+    details: ["+91 8603331004"],
+    action: "tel:8603331004",
+  },
+  {
+    icon: Phone,
+    title: "Any Enquiries",
+    details: ["+91 9709770712", "Prince Raj"],
     action: "tel:9709770712",
   },
   {
@@ -41,9 +47,16 @@ export function ContactInfo() {
               <div>
                 <h3 className="font-bold text-lg mb-2 text-foreground">{detail.title}</h3>
                 {detail.action ? (
-                  <a href={detail.action} className="text-muted-foreground hover:text-primary transition-colors">
-                    {detail.details[0]}
-                  </a>
+                  <div>
+                    <a href={detail.action} className="text-muted-foreground hover:text-primary transition-colors">
+                      {detail.details[0]}
+                    </a>
+                    {detail.details.length > 1 && (
+                      <p className="text-muted-foreground mt-1">
+                        {detail.details.slice(1).join(", ")}
+                      </p>
+                    )}
+                  </div>
                 ) : (
                   detail.details.map((line, idx) => (
                     <p key={idx} className="text-muted-foreground">
